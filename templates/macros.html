@@ -6,16 +6,20 @@
         </h2>
         {% if post.extra %}
         {% if post.extra.authors %}
-        <p class="has-text-grey"> {{ post.extra.authors | join(sep=", ") }}
+        <p>
+        <div class="has-text-grey-lighter">
+            {{ post.extra.authors | join(sep=", ") }}
+        </div>
+        <div class="has-text-grey-light">
             {% if post.extra.publication %}
-            <br />
             {{ post.extra.publication }}, {{ post.extra.year }}
             {% endif %}
-
+        </div>
+        <div class="has-text-grey-light">
             {% if post.extra.comment %}
-            <br>
             <b>{{ post.extra.comment }}</b>
             {% endif %}
+        </div>
         </p>
         <p>
             {% endif %}
