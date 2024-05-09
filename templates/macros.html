@@ -1,7 +1,7 @@
 {% import "colors.html" as colors %}
 {% macro post_header(post, thumbnail=false) %}
 <div class="columns is-desktop">
-    <div class="column is-desktop is-two-thirds">
+    <div class="column is-desktop">
         <h2><a class="has-text-{{ colors::style() }}" href="{{ get_url(path=post.path) | safe }}">{{ post.title }}</a>
         </h2>
         {% if post.extra %}

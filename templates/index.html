@@ -59,6 +59,20 @@
                                     <span class="column">
                                         {{ education.course }}, {{ education.year }}<br />
                                         <span class="has-text-grey">{{ education.institution }}</span>
+                                        <br />
+                                        {% if education.thesis %}
+                                        {% if education.thesis is starting_with("http://") or education.thesis is
+                                        starting_with("https://") %}
+                                        <a class="button is-outlined is-small is-{{ colors::style() }}"
+                                            href="{{ education.thesis | safe }}">
+                                            {% else %}
+                                            <a class="button is-outlined is-small is-{{ colors::style() }}"
+                                                href="{{ get_url(path=education.thesis) | safe }}">
+                                                {% endif %}
+                                                Thesis
+                                            </a>
+                                            </p>
+                                            {% endif %}
                                     </span>
                                 </div>
                                 {% endfor %}
@@ -76,8 +90,8 @@
 <section class="section">
     <div class="container">
         <div class="columns is-desktop">
-            <div class="column is-one-third-desktop">
-                <h1 class="title is-1" id="publications">
+            <div class="column is-one-quarter-desktop">
+                <h1 class="title is-3" id="publications">
                     <a class="has-text-{{ colors::style() }}" href="{{ get_url(path='publications') | safe }}">
                         {{ publications.title }}
                     </a>
@@ -86,7 +100,7 @@
                 <h4 class="title is-4">{{ publications.description }}</h4>
                 {% endif %}
             </div>
-            <ul class="column is-two-thirds-desktop">
+            <ul class="column is-three-quarters-desktop">
                 {% for publication_path in publications.pages %}
                 <li class="content">
                     {% set publication = get_page(path=publication_path.relative_path) %}
@@ -104,8 +118,8 @@
 <section class="section">
     <div class="container">
         <div class="columns is-desktop">
-            <div class="column is-one-third-desktop">
-                <h1 class="title is-1" id="posts">
+            <div class="column is-one-quarter-desktop">
+                <h1 class="title is-3" id="posts">
                     <a class="has-text-{{ colors::style() }}" href="{{ get_url(path='posts') | safe }}">
                         {{ posts.title }}
                     </a>
@@ -114,7 +128,7 @@
                 <h4 class="title is-4">{{ posts.description }}</h4>
                 {% endif %}
             </div>
-            <ul class="column is-two-thirds-desktop">
+            <ul class="column is-three-quarters-desktop">
                 {% for post_path in posts.pages %}
                 <li class="content">
                     {% set post = get_page(path=post_path.relative_path) %}
@@ -132,8 +146,8 @@
 <section class="section">
     <div class="container">
         <div class="columns is-desktop">
-            <div class="column is-one-third-desktop">
-                <h1 class="title is-1" id="projects">
+            <div class="column is-one-quarter-desktop">
+                <h1 class="title is-3" id="projects">
                     <a class="has-text-{{ colors::style() }}" href="{{ get_url(path='projects') | safe }}">
                         {{ projects.title }}
                     </a>
@@ -142,7 +156,7 @@
                 <h4 class="title is-4">{{ projects.description }}</h4>
                 {% endif %}
             </div>
-            <ul class="column is-two-thirds-desktop">
+            <ul class="column is-three-quarters-desktop">
                 <div class="columns is-multiline is-desktop">
                     {% for project_path in projects.pages %}
                     <li class="content column is-one-third">
@@ -160,12 +174,12 @@
 <section id="contact" class="section">
     <div class="container">
         <div class="columns is-desktop">
-            <div class="column is-one-third-desktop">
-                <h1 class="title is-1">
+            <div class="column is-one-quarter-desktop">
+                <h1 class="title is-3">
                     <a class="has-text-{{ colors::style() }}" href="#contact">Contact</a>
                 </h1>
             </div>
-            <div class="column is-two-thirds-desktop">
+            <div class="column is-three-quarters-desktop">
                 <ul>
                     {% for contact_link in config.extra.contact_links %}
                     <li>
