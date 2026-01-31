@@ -82,6 +82,7 @@ disable_footer = false
 
 # Widgets to show on main page
 show_publications = true
+only_recent_publications = true
 show_posts = true
 show_projects = true
 
